@@ -1,6 +1,6 @@
 // membership.js
 // This script calculates the cost of a membership.
-
+"use strict"
 // Function called when the form is submitted.
 // Function performs the calculation and returns false.
 function calculate() {
@@ -44,7 +44,7 @@ function calculate() {
         
         // Discount multiple years:
         if (years > 1) {
-            cost *= .80; // 80%
+            cost *= 0.80; // 80%
         }
         
         // Show the total amount:

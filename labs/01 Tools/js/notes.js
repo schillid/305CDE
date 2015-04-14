@@ -24,6 +24,18 @@ function displayList() {
 	}
 }
 
+function saveList() {
+    localStorage.notes = JSON.stringify(notes);
+}
+
+function loadList() {
+    console.log('loadList');
+    if (localStorage.notes) {
+        notes = JSON.parse(localStorage.notes);
+        displayList();
+    }
+}
+
 function deleteIndex(i) {
 	notes.splice(i, 1);
 	displayList();
@@ -31,3 +43,4 @@ function deleteIndex(i) {
 
 button = document.getElementById('add');
 button.onclick = addItem;
+button.onclick = saveList;

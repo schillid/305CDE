@@ -38,9 +38,20 @@ function addTask() {
     
 } // End of addTask() function.
 
+function removeDuplicates(){
+    var uniqueArray = tasks.filter(function(elem, pos) {
+    return tasks.indexOf(elem) == pos;    
+    });
+    tasks = uniqueArray;
+    console.log('Unique Array: ' + uniqueArray);
+}
+
 // Initial setup:
 function init() {
     'use strict';
     document.getElementById('theForm').onsubmit = addTask;
 } // End of init() function.
 window.onload = init;
+
+button = document.getElementById('remove');
+button.onclick = removeDuplicates;
