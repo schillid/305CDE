@@ -10,11 +10,22 @@ function process() {
     var okay = true;
     
     // Get form references:
+    var name = document.getElementById('name');
     var email = document.getElementById('email');
     var comments = document.getElementById('comments');
+    
+    // Validate the name:
+    if (!name || !name.value
+    || (name.value.length < 4)
+    || (name.value.length > 100)
+    || (name.value.indexOf(' ') == -1)) {
+        okay = false;
+        alert('Please enter a valid Full Name!');
+    }
+    
     // Validate the email address:
-    if (!email || !email.value 
-    || (email.value.length < 6) 
+    if (!email || !email.value
+    || (email.value.length < 6)
     || (email.value.indexOf('@') == -1)) {
         okay = false;
         alert('Please enter a valid email address!');
@@ -45,11 +56,12 @@ function process() {
     // For this example we alert the user and log details to the console
     var message;
     if (okay) {
-        message = "Form submitted";
+        message = "Form successfully submitted!";
     } else {
-        message = "Form not submitted";
+        message = "Form not submitted!";
     }
     console.log(message);
+    console.log("Name: " + name.value);
     console.log("Email: " + email.value);
     console.log("Comments: " + comments.value);
     alert(message);
